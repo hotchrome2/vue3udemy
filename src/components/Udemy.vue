@@ -1,20 +1,25 @@
 <template>
-  <p>{{ message }}</p>
-  <input type="text" v-model="message" />aa
-
-
+  <p><input type="text" v-model="km" />km</p>
+  <p><input type="text" v-model="m" />m</p>
 </template>
 
 <script>
 export default {
   data() {
-    return { message: "Helloo" }
+    return {
+      km: 0,
+      m: 0
+    }
   },
   watch: {
-    message: function(newValue, oldValue) {
-      console.log('New:', newValue, 'Old:', oldValue)
-
-    }
+    km: function(value) {
+      console.log('km:', value)
+      this.m = value * 1000
+    },
+    m: function(value) {
+      console.log('m:', value)
+      this.km = value / 1000
+    },
   }
 }
 </script>
