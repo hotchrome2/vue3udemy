@@ -18,20 +18,29 @@ export default {
         { name: 'Red'},
         { name: 'Green'},
         { name: 'Blue'},
-      ]
+      ],
+      index: 0,
+      count: 0,
     }
   },
   watch: {
     colors: {
       handler: function(newValue, oldValue) {
-        console.log('Updated.')
+        // 本当に新旧の値が違う時のみここに来る
+        this.count++;
+        console.log('Updated. count:', this.count)
       },
       deep: true
     }
   },
   methods: {
     onClick: function(event) {
-      this.colors[1].name = 'White'
+      this.index++;
+      if (this.index >= 3) {
+        this.index = 0;
+      }
+      console.log('index:', this.index)
+      this.colors[this.index].name = 'White'
     }
   }
 }
