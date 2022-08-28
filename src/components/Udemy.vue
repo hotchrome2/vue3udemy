@@ -34,8 +34,9 @@ export default {
       const params = { page: 1, per_page: 10, query: this.keyword }
       axios.get('https://qiita.com/api/v2/items', { params })
       .then(function(response){
-        console.log('api response:')
-        console.log(response)
+        // console.log('api response:')
+        // console.log(response)
+        vm.items = response.data
       })
       .catch(function(error){
         console.log(error)
