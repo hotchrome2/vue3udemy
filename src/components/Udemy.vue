@@ -1,7 +1,10 @@
 <template>
-  <p>first:<input type="text" v-model="first" /></p>
-  <p>last:<input type="text" v-model="last" /></p>
-  <p>Full Name: {{ fullName }}</p>
+  <ul>
+    <li v-for="color in colors">
+      {{ color.name}}
+    </li>
+  </ul>
+  <button v-on:click="onClick">Click here</button>
 </template>
 
 <script setup>
@@ -11,26 +14,26 @@
 export default {
   data() {
     return {
-      first: "",
-      last: "",
-      // fullName: ""
+      colors : [
+        { name: 'Red'},
+        { name: 'Green'},
+        { name: 'Blue'},
+      ]
     }
   },
-  computed: {
-    fullName: function() {
-      return this.first + ',' + this.last
+  watch: {
+    colors: {
+      handler: function(newValue, oldValue) {
+        console.log('Updated.')
+      },
+      deep: true
+    }
+  },
+  methods: {
+    onClick: function(event) {
+      this.colors[1].name = 'White'
     }
   }
-  // watch: {
-  //   first: function(value) {
-  //     this.fullName = value + ' ' + this.last
-  //     console.log('first:', value)
-  //   },
-  //   last: function(value) {
-  //     this.fullName = this.first + ' ' + value
-  //     console.log('last:', value)
-  //   },
-  // }
 }
 </script>
 
