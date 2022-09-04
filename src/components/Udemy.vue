@@ -1,6 +1,6 @@
 <template>
   <p>
-    <input type="text" v-model="keyword" />
+    <input type="text" v-model="keyword" >
   </p>
   <p>{{ message }}</p>
   <ul>
@@ -16,6 +16,8 @@
 
 <script>
 import axios from 'axios'
+import { debounce } from 'lodash'
+
 export default {
   data() {
     return {
@@ -25,10 +27,17 @@ export default {
     }
   },
   watch: {
+    keyword: function(newKeyword, oldKeyword) {
+      console.log(newKeyword)
+      // キーワードが入力中（キーワードに変化あり）ならメッセージを表示してあげる
+      this.message = "Waiting for you to stop typing..."
+      this.debouncedgetAnswer()
+    }
   },
   mounted: function() {
-    this.keyword = 'JavaScript'
-    this.getAnswer()
+    // 指定秒数の間新しい入力がなければ、getAnswer()を実行する
+    // つまり、2秒入力が途絶えたら Loading.. を表示しaxisでAPI問い合わせをする
+    this.debouncedgetAnswer = debounce(this.getAnswer, 2000)
   },
   methods: {
     getAnswer: function() {
