@@ -1,6 +1,5 @@
 <template>
-  <p>Hello <span v-bind:class="{large: isLarge}">small world</span></p>
-  <p>Hello <span :class="{large: isLarge}">small World!</span></p>
+  <p>Hello <span v-bind:class="{ large: isLarge, 'text-danger': hasError }">small world</span></p>
 </template>
 
 <script setup>
@@ -14,6 +13,7 @@ export default {
   data() {
     return {
       isLarge: true,
+      hasError: true,
     }
   },
   watch: {
@@ -28,5 +28,8 @@ export default {
 <style scoped>
   .large {
     font-size: 30px;
+  }
+  .text-danger {
+    color: red;
   }
 </style>
