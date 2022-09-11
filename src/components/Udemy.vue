@@ -1,6 +1,6 @@
 <template>
-  <p>Hello <span v-bind:class="isLarge ? largeClass: ''">Vuejs</span></p>
-  <p>Hello <span v-bind:class="[isLarge ? largeClass: '', dangerClass]">Vuejs</span></p>
+  <p>Hello <span v-bind:style="{ color: color, fontSize: fontSize + 'px'}">Vue.js</span></p>
+  <p>Hello <span v-bind:style="{ color: color, 'font-size': fontSize + 'px'}">Vue.js</span></p>
 </template>
 
 <script setup>
@@ -13,14 +13,8 @@ import { debounce } from 'lodash'
 export default {
   data() {
     return {
-      largeClass: {
-        large: true,
-        'bg-gray': true
-      },
-      dangerClass: {
-        'text-danger': true,
-      },
-      isLarge: true,
+      color: 'blue',
+      fontSize: 36,
     }
   },
   watch: {
