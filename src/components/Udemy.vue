@@ -1,6 +1,5 @@
 <template>
-  <p>Hello <span v-bind:class="largeClass">Vue.js</span></p>
-  <p>Hello <span v-bind:class="[largeClass, dangerClass]">Vue.js</span></p>
+  <p>Hello <span v-bind:class="classObject">Vue</span></p>
 </template>
 
 <script setup>
@@ -13,9 +12,10 @@ import { debounce } from 'lodash'
 export default {
   data() {
     return {
-
-      largeClass: 'large',
-      dangerClass: 'text-danger',
+      classObject: {
+        large: true,
+        'text-danger': true
+      }
     }
   },
   watch: {
