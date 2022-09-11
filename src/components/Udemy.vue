@@ -1,5 +1,7 @@
 <template>
-  <p>Hello sec9-78,<span v-bind:style="styleObject">Vue.js</span></p>
+  <p>sec10 80</p>
+  <p v-if="toggle">Yes</p>
+  <p v-else>No</p>
 </template>
 
 <script setup>
@@ -9,10 +11,7 @@
 export default {
   data() {
     return {
-      styleObject: {
-        color: 'pink',
-        fontSize: '28px',
-      }
+      toggle: false,
     }
   },
   watch: {
