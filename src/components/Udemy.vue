@@ -1,20 +1,18 @@
 <template>
-  <p>Hello <span v-bind:style="{ color: color, fontSize: fontSize + 'px'}">Vue.js</span></p>
-  <p>Hello <span v-bind:style="{ color: color, 'font-size': fontSize + 'px'}">Vue.js</span></p>
+  <p>Hello sec9-78,<span v-bind:style="styleObject">Vue.js</span></p>
 </template>
 
 <script setup>
 </script>
 
 <script>
-import axios from 'axios'
-import { debounce } from 'lodash'
-
 export default {
   data() {
     return {
-      color: 'blue',
-      fontSize: 36,
+      styleObject: {
+        color: 'pink',
+        fontSize: '28px',
+      }
     }
   },
   watch: {
