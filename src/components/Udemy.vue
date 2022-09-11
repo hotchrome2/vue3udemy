@@ -1,5 +1,5 @@
 <template>
-  <p>Hello <span v-bind:class="{ large: isLarge, 'text-danger': hasError }">small world</span></p>
+  <p>Hello <span class="bg-gray text-blue" v-bind:class="{ large: isLarge, 'text-danger': hasError }">small world</span></p>
 </template>
 
 <script setup>
@@ -31,5 +31,11 @@ export default {
   }
   .text-danger {
     color: red;
+  }
+  .bg-gray {
+    background-color: gray;
+  }
+  .text-blue {
+    color: blue;
   }
 </style>
