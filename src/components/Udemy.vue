@@ -1,15 +1,8 @@
 <template>
-  <p>sec10 81</p>
-  <p v-if="color === 'red'">
-    Stop
+  <p>sec10 82 use v-show</p>
+  <p v-show="toggle">
+    Hello
   </p>
-  <p v-else-if="color === 'yellow'">
-    Caution
-  </p>
-  <p v-else-if="color === 'blue'">
-    Go
-  </p>
-  <p v-else>Not red/yellow/blue</p>
 </template>
 
 <script setup>
@@ -19,7 +12,7 @@
 export default {
   data() {
     return {
-      color: 'yellow',
+      toggle: true,
     }
   },
 }
