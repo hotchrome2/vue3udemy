@@ -1,8 +1,9 @@
 <template>
-  <p>sec10 82 use v-show</p>
-  <p v-show="toggle">
-    Hello
+  <p>sec11 85 use event handler</p>
+  <p >
+    counter: {{ counter }}
   </p>
+  <button v-on:click="counter++">Click here</button>
 </template>
 
 <script setup>
@@ -12,7 +13,7 @@
 export default {
   data() {
     return {
-      toggle: true,
+      counter: 0,
     }
   },
 }
