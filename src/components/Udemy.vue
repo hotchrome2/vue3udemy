@@ -1,9 +1,9 @@
 <template>
-  <p>sec11 85 use event handler</p>
+  <p>sec11 86 use event handler method</p>
   <p >
     counter: {{ counter }}
   </p>
-  <button v-on:click="counter++">Click here</button>
+  <button v-on:click="clickHandler">Click Here.</button>
 </template>
 
 <script setup>
@@ -16,6 +16,11 @@ export default {
       counter: 0,
     }
   },
+  methods: {
+    clickHandler: function() {
+      this.counter++;
+    }
+  }
 }
 </script>
 
